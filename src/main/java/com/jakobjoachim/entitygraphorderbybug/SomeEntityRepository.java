@@ -10,12 +10,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SomeEntityRepository extends CrudRepository<SomeEntity, Integer> {
 
+	// doesn't works
 	@EntityGraph(attributePaths = "someOrderedValues", type = EntityGraph.EntityGraphType.LOAD)
 	List<SomeEntity> findAllBySomeOrderedValuesIdIn(List<Integer> ids);
 
+	// works
 	@EntityGraph(attributePaths = "someOrderedValues", type = EntityGraph.EntityGraphType.LOAD)
 	Stream<SomeEntity> findAllByIdIn(List<Integer> ids);
 
+	// works
 	@EntityGraph(attributePaths = "someOrderedValues", type = EntityGraph.EntityGraphType.LOAD)
 	Stream<SomeEntity> findAllByIdInOrderById(List<Integer> ids);
 }

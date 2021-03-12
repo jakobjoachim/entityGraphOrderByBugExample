@@ -24,6 +24,7 @@ class SomeEntityRepositoryTest {
 	@Autowired
 	TransactionTemplate transactionTemplate;
 
+	// doesn't work
 	@Test
 	void streamOrderByDoesntGroupEntitiesTogether() {
 		AnotherEntity anotherEntityA1 = new AnotherEntity(1);
@@ -54,6 +55,7 @@ class SomeEntityRepositoryTest {
 				.containsExactlyInAnyOrder(someEntityA, someEntityB);
 	}
 
+	// works
 	@Test
 	void streamOrderByDoesntGroupEntitiesTogetherButGroupByIdIsUsed() {
 		AnotherEntity anotherEntityA1 = new AnotherEntity(1);
@@ -84,6 +86,7 @@ class SomeEntityRepositoryTest {
 				.containsExactlyInAnyOrder(someEntityA, someEntityB);
 	}
 
+	// works
 	@Test
 	void listOrderByDoesntGroupEntitiesTogether() {
 
@@ -115,6 +118,7 @@ class SomeEntityRepositoryTest {
 				.containsExactlyInAnyOrder(someEntityA, someEntityB);
 	}
 
+	// works
 	@Test
 	void streamOrderByAlreadyGroupsEntitiesTogether() {
 
